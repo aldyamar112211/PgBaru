@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terima Kasih! 🎉</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gradient-bg {
+      background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+    .card {
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center">
+  <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md text-center card">
+    <h1 class="text-4xl font-bold text-gray-800 mb-4">🎉 Terima Kasih! 🎉</h1>
+    <p class="text-lg text-gray-600 mb-4">
+      Kamu sudah menyelesaikan kuis ini dengan baik!
+    </p>
+    <p class="text-2xl font-bold text-indigo-600 mb-6">
+      Skor Kamu: <span id="finalScore">0</span>/5
+    </p>
+
+    <div class="flex flex-col space-y-3">
+      <a href="quiz.html" class="block bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+        🔁 Mulai Ulang Kuis
+      </a>
+      <a href="index.html" class="block bg-gradient-to-r from-gray-400 to-gray-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+        🏠 Beranda
+      </a>
+      <a href="mini-games.html" class="block bg-gradient-to-r from-green-400 to-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+        🎮 Mini Games
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Ambil skor dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const score = urlParams.get('score') || 0;
+    document.getElementById('finalScore').textContent = score;
+  </script>
+</body>
+</html>

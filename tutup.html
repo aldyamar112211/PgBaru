@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selesai! 🌟</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
+    }
+    .emoji-bounce {
+      animation: bounce 1.2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-center items-center text-center text-gray-800 p-6">
+  <div class="space-y-6 max-w-md">
+    <div class="text-5xl emoji-bounce">🎊🎈🎮</div>
+    <h1 id="finalMessage" class="text-4xl font-bold"></h1>
+    <p class="text-lg">Terakhir Nih Dari Aku, Mau Liat Atau Enggak?</p>
+
+    <!-- Tombol pilihan -->
+    <div class="flex justify-center gap-6 mt-6">
+      <button id="btnYes" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
+        Ya
+      </button>
+      <button id="btnNo" class="bg-gray-400 hover:bg-gray-500 text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
+        Tidak
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Ambil biodata
+    const biodata = JSON.parse(sessionStorage.getItem('userBiodata')) || {};
+    const namaPanggilan = biodata.namaPanggilan || 'Zee';
+
+    // Sisipkan ke h1
+    document.getElementById('finalMessage').textContent = `Yay! Kamu sudah menyelesaikan semuanya ${namaPanggilan}!`;
+
+    // Event tombol
+    document.getElementById('btnYes').addEventListener('click', () => {
+      window.location.href = 'last.html';
+    });
+
+    document.getElementById('btnNo').addEventListener('click', () => {
+      window.location.href = '404.html';
+    });
+  </script>
+</body>
+</html>

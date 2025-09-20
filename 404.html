@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 - Halaman Tidak Ditemukan</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #121212;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 6rem;
+      margin: 0;
+      user-select: none;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin: 15px 0 30px 0;
+      user-select: none;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.25rem;
+      background-color: #4ecdc4;
+      border: none;
+      border-radius: 8px;
+      color: #121212;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      touch-action: manipulation;
+      min-width: 180px;
+      font-weight: 700;
+    }
+
+    button:hover,
+    button:focus {
+      background-color: #38b9ac;
+      outline: none;
+    }
+
+    /* Pastikan tombol selalu visible dan gak geser di HP */
+    @media (hover: none) and (pointer: coarse) {
+      button {
+        padding: 18px 32px;
+        font-size: 1.3rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>404</h1>
+  <p>Ups, halaman yang kamu cari gak ketemu nih.</p>
+  <button id="continueBtn" aria-label="Lanjut ke halaman utama">Klik untuk lanjut ke halaman selanjutnya</button>
+
+  <script>
+    const continueBtn = document.getElementById('continueBtn');
+    continueBtn.addEventListener('click', () => {
+      // Ganti 'index.html' dengan halaman tujuan sebenarnya jika beda
+      window.location.href = 'last.html';
+    });
+
+    // Kalau user coba paksa pindah tanpa klik, script ini cegah:
+    window.onbeforeunload = function(e) {
+      // Cegah pindah halaman sebelum klik tombol
+      // (Note: Beberapa browser hanya tunjukkan dialog default, gak custom)
+      return "Kamu harus klik tombol untuk melanjutkan.";
+    };
+  </script>
+
+</body>
+</html>
